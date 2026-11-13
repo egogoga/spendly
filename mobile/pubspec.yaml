@@ -1,0 +1,24 @@
+name: spendly
+description: "Spendly — учёт личных расходов голосом."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Шрифты из Google Fonts: Unbounded, Onest, JetBrains Mono
+  google_fonts: ^7.0.0
+  # Распознавание речи встроенными средствами телефона/браузера
+  speech_to_text: ^7.5.0
+  # Запросы к серверу на FastAPI
+  http: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

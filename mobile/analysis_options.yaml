@@ -1,0 +1,10 @@
+# Настройки проверки кода. Позже можно подключить пакет flutter_lints
+# и добавить строку: include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    deprecated_member_use: ignore
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - web/**
