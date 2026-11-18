@@ -23,3 +23,8 @@ def read_root():
     return {"status": "ok"}
 
 app.include_router(transactions.router)
+
+@app.post("/auth/login")
+def fake_login():
+    # Временная заглушка, чтобы приложение могло войти
+    return {"access_token": "test-token", "token_type": "bearer"}

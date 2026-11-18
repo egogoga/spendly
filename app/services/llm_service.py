@@ -10,8 +10,9 @@ load_dotenv()
 client = GigaChat(
     credentials=os.getenv("GIGACHAT_CREDENTIALS"),
     scope="GIGACHAT_API_PERS",
-    verify_ssl_certs=False, # TODO: Пофиксить перед защитой!
-    model="GigaChat-2"
+    verify_ssl_certs=False,
+    model="GigaChat-2",
+    timeout=60  # добавили таймаут в секундах
 )
 
 PROMPT = """Ты — финансовый ассистент приложения Spendly. 

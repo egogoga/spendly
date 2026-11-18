@@ -22,7 +22,7 @@ class SpendlyApi {
   /// • настоящий телефон — http://<IP компьютера в той же Wi-Fi сети>:8000
   static String baseUrl = 'http://localhost:8000';
 
-  static bool useMock = true;
+  static bool useMock = false;
 
   String? _token;
 
@@ -34,7 +34,8 @@ class SpendlyApi {
       _token = 'demo-token';
       return;
     }
-    final data = await _post('/auth/login', {'email': email, 'password': password});
+    final data =
+        await _post('/auth/login', {'email': email, 'password': password});
     _token = data['access_token'] as String?;
   }
 
@@ -44,7 +45,8 @@ class SpendlyApi {
       _token = 'demo-token';
       return;
     }
-    final data = await _post('/auth/register', {'name': name, 'email': email, 'password': password});
+    final data = await _post(
+        '/auth/register', {'name': name, 'email': email, 'password': password});
     _token = data['access_token'] as String?;
   }
 
@@ -57,7 +59,8 @@ class SpendlyApi {
     final data = await _post('/expenses/parse', {'text': text});
     final items = data['items'] as List<dynamic>? ?? const [];
     return [
-      for (final item in items) ParsedExpense.fromJson(item as Map<String, dynamic>),
+      for (final item in items)
+        ParsedExpense.fromJson(item as Map<String, dynamic>),
     ];
   }
 
@@ -69,7 +72,8 @@ class SpendlyApi {
     });
   }
 
-  Future<Map<String, dynamic>> _post(String path, Map<String, dynamic> body) async {
+  Future<Map<String, dynamic>> _post(
+      String path, Map<String, dynamic> body) async {
     final response = await http.post(
       Uri.parse('$baseUrl$path'),
       headers: {
